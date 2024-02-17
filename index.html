@@ -1,14 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUINSACAT Login Page</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <h1>
-        hahahaha
-    </h1>
-    
+  <div class="container">
+    <form class="login-form">
+      <img class="logo" alt="Company Logo" src="logo.png">
+      <div class="input-group">
+        <input type="text" id="account" name="account" placeholder="Account ID or Full name" required>
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <i class="fas fa-key password-toggle"></i>
+        <div id="togglePassword" class="hide-show-text" onclick="togglePasswordVisibility()">Show</div>
+      </div>
+      <div class="options">
+        <a href="#"  onclick="forgot()"  class="forgot-password">Forgot Password?</a>
+        <a href="#" onclick="signup()" class="sign-up-now">Sign up now</a>
+      </div>
+      <button type="button" onclick="login()" class="login-button">Login</button>
+    </form>
+  </div>
+
+  <script>
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById("password");
+      const toggleText = document.getElementById("togglePassword");
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleText.textContent = "Hide";
+      } else {
+        passwordInput.type = "password";
+        toggleText.textContent = "Show";
+      }
+    }
+
+    function login() {
+      const accountInput = document.getElementById("account");
+      const passwordInput = document.getElementById("password");
+
+      if (accountInput.value === "" || passwordInput.value === "") {
+        alert("Please input fields");
+      } else {
+        alert("Login successful");
+        accountInput.value = "";
+        passwordInput.value = "";
+      }
+    }
+
+    function signup() {
+      alert("This function will be available soon!!");
+      document.getElementById("account").value = "";
+      document.getElementById("password").value = "";
+    }
+
+    function forgot() {
+      alert("This function will be available soon!!");
+      document.getElementById("account").value = "";
+      document.getElementById("password").value = "";
+    }
+  </script>
 </body>
 </html>
